@@ -66,8 +66,10 @@ function loadItem(Id,Title,Image,Value,Message){
                         </div>
                     </div>
                     <div class="product-footer">
-                        <input class="qtd" type="number" name="qtd" id="qtd">
-                        <a class="btn btn-compra" href=""> Adicionar no orçamento </a>
+                        <input class="qtd" type="number" name="qtd" id="qtd_${Id}">
+                        <a class="btn btn-rmv" href="#">-1</a>
+                         
+                        <a class="btn btn-add" href="#">+1</a>
                     </div>
                 </div>
             </div> `;
@@ -77,14 +79,14 @@ function loadItem(Id,Title,Image,Value,Message){
 function MainProducts(){
     var max_in_line = 5;
     var temp = 0;
-    var openDiv = `<div class="favoritos-produtos">oi`;
+    var openDiv = `<div class="favoritos-produtos">`;
     var closeDiv = "</div>"
     var html = openDiv; 
     var qnt = 6;
     for(var i=0; i<qnt; i++){
       
         temp++;
-        html+=loadItem(0,"TESTE JAVASCRIPT", "logo.png", "R$ 2.0","Testemsg");
+        html+=loadItem(i,"TESTE JAVASCRIPT", "logo.png", "R$ 2.0","Testemsg");
         if(temp==max_in_line){
             html+=closeDiv;
             if(!((i+1)==qnt)){

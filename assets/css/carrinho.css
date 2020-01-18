@@ -1,0 +1,206 @@
+#car-nav {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    top: 0;
+    z-index: 9999;
+
+}
+
+.car-main {
+    background-color: white;
+    width: 50vh;
+    right: 3%;
+    position: absolute;
+    opacity: 1 !important;
+    height: 90vh;
+ 
+}
+
+.car-header {
+    background-color: #27cdd8;
+    /*#15ce97 #f6f6f6 */
+    padding: 1.3rem 0.7rem;
+    color: white;
+    text-align: left;
+    font-family: var(--tertiary-font);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.car-only-mobile {
+    display: none;
+}
+
+
+/*
+.car-close {
+    color: black;
+    background: radial-gradient(circle closest-side, #fff 99%, #fff 98%, rgba(0, 0, 0, 0) 100%);
+    padding: 6px;
+}
+
+*/
+
+#car-container {
+    background-color: #f6f6f6;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    padding: 0.25rem 0.5rem;
+}
+
+.car-item {
+    width: 100%;
+    background-color: white;
+    height: 6.5rem;
+    box-shadow: 0px 4px 8px rgba(84, 179, 156, 0.5);
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    border-radius: 6px;
+    padding: 0 0.75rem;
+}
+
+.car-item-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.car-item .car-img {
+    display: flex;
+    align-items: center;
+}
+
+.car-item .car-img img {
+ height: 3em;
+}
+
+.car-item-remove {
+    padding: 0.50em 0em;
+    color: #626262;
+    font-size: 0.85em;
+}
+
+
+.car-bold {
+    font-weight: bold;
+}
+.car-item-content{
+    width: 13em;
+}
+.car-item-content p {
+    font-size: 0.75em;
+    margin: 0.75rem 0.5rem;
+}
+
+.car-item-money {
+    color: #26C0E2;
+    font-weight: bold;
+}
+
+.car-btn {
+    background: #f6f6f6;
+    border: 0px;
+    border-radius: 2px;
+    text-align: center;
+    font-family: var(--secondary-font);
+    font-style: normal;
+    font-weight: bold;
+    color: #15ce97;
+    font-size: 0.8rem;
+    width: 2.3em;
+    padding: 0.25em 0.25em;
+}
+
+.minus-btn {
+    border: 0.1em solid #15ce97;
+    padding: 0.15em 0.15em;
+}
+
+.more-btn {
+    background: #15ce97;
+    color: white;
+}
+
+.car-footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+}
+
+.car-footer-footer {
+    display: flex;
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+}
+
+.car-table {
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+}
+
+.car-table .td-1 {
+    text-align: left;
+}
+
+.car-table .td-2 {
+    text-align: right;
+}
+
+.car-table .td-2 a {
+    text-align: right;
+    color: black;
+    text-decoration-line: underline;
+    font-weight: normal;
+}
+
+.car-btn-checkout {
+    box-shadow: 0px 4px 8px rgba(84, 179, 156, 0.5);
+    background: var(--primary-color-btn-card);
+    border-radius: 4px;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-family: var(--secondary-font);
+    font-weight: bold;
+    color: #FFF;
+    bottom: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .car-main {
+        background-color: white;
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        opacity: 1 !important;
+        transform: none;
+        height: 75vh;
+        right: 0;
+    }
+    #car-container {
+        background-color: #f6f6f6;
+        height: auto;
+        width: 100%;
+        overflow-y: auto;
+        padding: 0.25rem 0.5rem;
+    }
+    .car-footer-footer {
+        display: flex;
+        width: 100%;
+        padding: 0;
+    }
+    .car-only-mobile {
+        display: block;
+    }
+}

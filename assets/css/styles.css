@@ -1,4 +1,9 @@
+@import "carrinho.css";
 @import "produtos.css";
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css);
+.far,.fa{
+    cursor:pointer;
+}
 * {
     margin: 0;
     padding: 0;
@@ -45,6 +50,9 @@
     font-weight: 400;
     letter-spacing: -0.015em;
     outline: none;
+}
+.btn{
+    cursor: pointer;
 }
 .main-title{
     margin-top: 2em;

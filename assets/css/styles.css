@@ -54,6 +54,15 @@
 .btn{
     cursor: pointer;
 }
+.shop-btn{
+    width: 3em;
+    height: 3em;
+    background-color: red;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .main-title{
     margin-top: 2em;
     text-align: center;

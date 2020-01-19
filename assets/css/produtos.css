@@ -105,6 +105,9 @@ a{
     height: 45px;
     margin-right: 1rem;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn.btn-add,.btn.btn.btn-rmv {

@@ -68,7 +68,7 @@ function loadItem(Id,Title,Image,Value,Message){
                         </div>
                     </div>
                     <div class="product-footer">
-                        <input class="qtd" type="number" name="qtd" id="qtd_${Id}">
+                        <div class="qtd" id="qtd_${Id}"></div>
                         <div class="btn btn-rmv" onclick="ProductAction('Subtract',${Id})" >-1</div>
                          
                         <div class="btn btn-add" onclick="ProductAction('Add',${Id})">+1</div>
@@ -151,7 +151,7 @@ var html = "";
 
     for(var i =0; i < ShoppingCart.length;i++){
         Product = FindPItem(ShoppingCart[i].Id);
-    
+        document.getElementById("qtd_"+ShoppingCart[i].Id).innerHTML = ShoppingCart[i].Qnt;
      html+=loadSelectedItem(Product.Id, Product.Title, Product.Image, Product.Value,ShoppingCart[i].Qnt);
     }
     document.getElementById("car-container").innerHTML = html;
@@ -165,20 +165,7 @@ function FindPItem(Key){
     AuxItemAdd = Key;
     return Json.find(AuxFind);
 }
-var Test = [{
-    Id: 1,
-    Qnt: 12,
-},
-{
-    Id: 2,
-    Qnt:11,
-},
-{
-    Id: 3,
-    Qnt: 10,
-}];
-//localStorage.setItem("Shop", (JSON.stringify(Test)));
-console.log(localStorage.getItem("Shop"));
+
 UpdateCart();
 function ProductAction(Action, Id){
     var ShoppingCart = localStorage.getItem("Shop");
@@ -195,6 +182,7 @@ function ProductAction(Action, Id){
                     ShoppingCart[i].Qnt--; 
                     if(ShoppingCart[i].Qnt<=0){
                         ShoppingCart.splice(i,1);
+                        document.getElementById("qtd_"+Id).innerHTML = "";
                     }
                 break;
                 case "Remove":

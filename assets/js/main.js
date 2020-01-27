@@ -3,7 +3,7 @@ var Json = [
         Id: 1,
         Title: "TesteJson",
         Image: "logo.png",
-        Value: "2.42",
+        Value: "245542",
         Message: "MSG",
         Color: "red",
     },
@@ -55,16 +55,19 @@ var AuxItemAdd = null;
 
 
 function loadItem(Id,Title,Image,Value,Message){
+    Price = numberToReal(parseFloat(Value));
     var product=`
                 <div class="produtos-card">
+                <div class="produtos-central">
                 <div class="produto-img">
                     <img src="./assets/img/${Image}" alt="">
                 </div>
+                </div>
                 <div class="produtos-content">
                     <div class="produto-info">
-                        <p class="produto-name">${Id}-${Title}</p>
+                        <p class="produto-name">${Title}</p>
                         <div class="info-prices">
-                            <span class="produto-price">${Value}</span><span class="widget promotion">${Message}</span>
+                            <span class="produto-price">${Price}</span><span class="widget promotion">${Message}</span>
                         </div>
                     </div>
                     <div class="product-footer">
@@ -78,8 +81,9 @@ function loadItem(Id,Title,Image,Value,Message){
             return product;
 }
 function loadSelectedItem(Id,Title,Image,Value,Qnt){
+    
     var TotalP = Value*Qnt;
-    TotalP = TotalP.toFixed(2);
+    Price = numberToReal(parseFloat(TotalP));
 var product = `
 <div class="car-item">
     <div class="car-img">
@@ -87,7 +91,7 @@ var product = `
     </div>
     <div class="car-item-content">
 
-        <p>${Id} - ${Title}</p>
+        <p>${Title}</p>
 
         <div class="car-item-footer">
             <div>
@@ -96,7 +100,7 @@ var product = `
                 <button class="car-btn more-btn" onclick="ProductAction('Add',${Id})">+1</button>
             </div>
             <div class="car-item-money">
-                ${TotalP}
+                ${Price}
             </div>
         </div>
     </div>
@@ -148,14 +152,16 @@ function UpdateCart(){
 var ShoppingCart = localStorage.getItem("Shop");
 var ShoppingCart =  JSON.parse(ShoppingCart);
 var html = "";
+var total = 0;
 
     for(var i =0; i < ShoppingCart.length;i++){
         Product = FindPItem(ShoppingCart[i].Id);
         document.getElementById("qtd_"+ShoppingCart[i].Id).innerHTML = ShoppingCart[i].Qnt;
      html+=loadSelectedItem(Product.Id, Product.Title, Product.Image, Product.Value,ShoppingCart[i].Qnt);
+     total += (parseFloat(Product.Value)*ShoppingCart[i].Qnt)
     }
     document.getElementById("car-container").innerHTML = html;
-
+    document.getElementById("total_orcamento").innerHTML = numberToReal(total);
 
 }
 function AuxFind(Json) { 
@@ -203,4 +209,9 @@ function ProductAction(Action, Id){
         localStorage.setItem("Shop", JSON.stringify(ShoppingCart));
         UpdateCart();
     }
+}
+function numberToReal(numero) {
+    var numero = numero.toFixed(2).split('.');
+    numero[0] = "R$ " + numero[0].split(/(?=(?:...)*$)/).join('.');
+    return numero.join(',');
 }

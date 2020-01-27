@@ -21,18 +21,24 @@ a{
     margin-left: 0.5rem;
     border-radius: 6px;
     padding: 0 0.75rem;
+    
 }
-
+.produtos-card .produtos-central{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .produtos-card .produto-img {
     display: flex;
-    height: 320px;
+    width: 17em;
+    height: 12em;
+   
     justify-content: center;
     align-items: center;
 }
 
 .produtos-card .produto-img img {
-    width: 200px;
-    height: 200px;
+   width: 100%;
 }
 
 .produtos-card .produtos-content {

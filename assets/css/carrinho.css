@@ -204,4 +204,7 @@
     .car-only-mobile {
         display: block;
     }
+    .produtos-card .produto-img{
+        width: 1em;
+    }
 }

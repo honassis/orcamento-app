@@ -10,6 +10,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat Alternates', sans-serif;
 }
+
 :root {
     --primary-color-btn-card: #15CE97;
     --primary-font-color-card: #26C0E2;

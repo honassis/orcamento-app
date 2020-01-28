@@ -1,0 +1,109 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css);
+.content form input {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    border-radius: 2px;
+    height: 45px;
+}
+
+body, input, button {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.body {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    background-image: linear-gradient(to right, #223f8d, #4735a7);
+}
+
+a {
+    font-size: 1.3em;
+    color: white;
+    text-decoration: none;
+    margin-top: 1em;
+}
+
+a:hover {
+    transition: .2s;
+    color: gray;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    border-radius: 2px;
+    height: 45px;
+    width: 18em;
+}
+
+.btn {
+    border: 0;
+    border-radius: 2px;
+    margin-top: 1em;
+    height: 42px;
+    padding: 0 20px;
+    font-weight: bold;
+    background: #5c75b9;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #aebee9;
+    color: black;
+    transition: .2s;
+}
+
+.center label {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: 1em;
+    color: lightgray;
+}
+.img-logo{
+    width: 26em;
+    margin-bottom: 3em;
+}
+.btn-img{
+    width: 20.5em;
+    
+}
+.preview-img{
+    width: 20.5em;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    border-top: none;
+    height: 10em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 400;
+}
+.preview-img i{
+    position: absolute;
+}
+.img-up{
+    max-width: 18em;
+    max-height: 10em;
+    background: red;
+    z-index: -1;
+    
+    
+}
+.hidden{
+    display: none;
+}

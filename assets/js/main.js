@@ -49,6 +49,9 @@ var Json = [
     },
 
 ];
+if(localStorage.getItem("Shop")==null){
+    localStorage.setItem("Shop", "[]");
+}
 //var to aux in search on json
 var AuxItemAdd = null;
 
@@ -67,12 +70,38 @@ function loadItem(Id,Title,Image,Value,Message){
                     <div class="produto-info">
                         <p class="produto-name">${Title}</p>
                         <div class="info-prices">
-                            <span class="produto-price">${Price}</span><span class="widget promotion">${Message}</span>
+                         
                         </div>
                     </div>
                     <div class="product-footer">
                         <div class="qtd" id="qtd_${Id}"></div>
                         <div class="btn btn-rmv" onclick="ProductAction('Subtract',${Id})" >-1</div>
+                         
+                        <div class="btn btn-add" onclick="ProductAction('Add',${Id})">+1</div>
+                    </div>
+                </div>
+            </div> `;
+            return product;
+}
+function loadAdminItem(Id,Title,Image,Value,Message){
+    Price = numberToReal(parseFloat(Value));
+    var product=`
+                <div class="produtos-card">
+                <div class="produtos-central">
+                <div class="produto-img">
+                    <img src="./assets/img/${Image}" alt="">
+                </div>
+                </div>
+                <div class="produtos-content">
+                    <div class="produto-info">
+                        <p class="produto-name">${Title}</p>
+                        <div class="info-prices">
+                         
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="qtd" id="qtd_${Id}"></div>
+                        <div class="btn btn-rmv" onclick="ProductAction('Subtract',${Id})" >-iu</div>
                          
                         <div class="btn btn-add" onclick="ProductAction('Add',${Id})">+1</div>
                     </div>
@@ -109,7 +138,7 @@ var product = `
  return product;
 }
 
-function MainProducts(){
+function MainProducts(mode){
     var max_in_line = 5;
     var temp = 0;
     var openDiv = `<div class="favoritos-produtos">`;
@@ -118,7 +147,12 @@ function MainProducts(){
     for(var i=0; i<Json.length; i++){
       
         temp++;
-        html+=loadItem(Json[i].Id,Json[i].Title, Json[i].Image, Json[i].Value,Json[i].Message);
+        if(mode=="user"){
+            html+=loadItem(Json[i].Id,Json[i].Title, Json[i].Image, Json[i].Value,Json[i].Message);
+        }else if(mode=="admin"){
+            html+=loadAdminItem(Json[i].Id,Json[i].Title, Json[i].Image, Json[i].Value,Json[i].Message);
+
+        }
         if(temp==max_in_line){
             html+=closeDiv;
             if(!((i+1)==Json.length)){
@@ -133,8 +167,6 @@ function MainProducts(){
     }
     document.getElementById("main-products").innerHTML += html;
 }
-
-MainProducts();
 
 function CarMarket(action){
     switch(action){
@@ -172,7 +204,7 @@ function FindPItem(Key){
     return Json.find(AuxFind);
 }
 
-UpdateCart();
+
 function ProductAction(Action, Id){
     var ShoppingCart = localStorage.getItem("Shop");
     var ShoppingCart =  JSON.parse(ShoppingCart);
